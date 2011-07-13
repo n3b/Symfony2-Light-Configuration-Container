@@ -41,6 +41,7 @@ MyBundleNamespace\DependencyInjection\MyBundleExtension:
     }
 
 and now, if you inject this container in your service:
+
 /my_bundle_dir/Resources/config/services.yml:
 
     services:
@@ -60,6 +61,7 @@ and now, if you inject this container in your service:
           config:                       '@n3b_config'
 
 and you have something in your app config file:
+
 /app/config/config.yml:
 
     ...
@@ -73,12 +75,15 @@ and you have something in your app config file:
     ...
 
 you can get it this way:
+
 n3b\Bundle\Blog\Service\BlogService:
 
     public function __construct($services, $config)
     {
         var_dump($config->get('n3b_blog'));
     }
+
+result:
 
     object(n3b\Bundle\Util\Service\Config\ConfigContainer)#4022 (1) {
       ["container":protected]=>
@@ -103,6 +108,8 @@ n3b\Bundle\Blog\Service\BlogService:
 
 `var_dump($config->get('n3b_blog')->get('twitter'));`:
 
+result:
+
     object(n3b\Bundle\Util\Service\Config\ConfigContainer)#68 (1) {
       ["container":protected]=>
       array(6) {
@@ -117,9 +124,13 @@ n3b\Bundle\Blog\Service\BlogService:
 
 `var_dump($config->get('n3b_blog')->get('twitter.app_name'));`:
 
+result:
+
     string(19) "N3b.ru exchange app"
 
 `var_dump($config->get('n3b_blog')->get('twitter')->getArray());`:
+
+result:
 
     array(6) {
       ["articles_translate"]=>

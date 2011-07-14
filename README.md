@@ -1,4 +1,4 @@
-light symfony2 configuration
+light symfony2 bundle configuration container
 
 how to use it:
 

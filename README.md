@@ -122,13 +122,13 @@ result:
       }
     }
 
-`var_dump($config->get('n3b_blog')->get('twitter.app_name'));`:
+`var_dump($config->get('n3b_blog.twitter.app_name'));`:
 
 result:
 
     string(19) "N3b.ru exchange app"
 
-`var_dump($config->get('n3b_blog')->get('twitter')->getArray());`:
+`var_dump($config->get('n3b_blog.twitter')->getArray());`:
 
 result:
 

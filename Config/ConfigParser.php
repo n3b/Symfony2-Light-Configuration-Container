@@ -4,7 +4,7 @@ namespace n3b\Bundle\Util\Service\Config;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class ConfigParser
+class ConfigParser extends Config
 {
     public function __construct(array $configs, ContainerBuilder $container, $alias)
     {

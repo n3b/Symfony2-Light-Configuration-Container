@@ -1,29 +1,18 @@
 <?php
 
+namespace n3b\Bundle\Util\Service\Config;
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class ConfigContainerBuilder
+class ConfigContainerBuilder extends Config
 {
     protected $container = array();
 
     public function __construct(ContainerInterface $container)
     {
-        if($container->hasParameter('n3b.config'))
-            $this->processParams($container->getParameter('n3b.config'));
-    }
-
-    public function init(array $configs, ContainerBuilder $container, $alias)
-    {
-        $config = array();
-        foreach($configs as $subConfig)
-            $config = \array_merge($config, $subConfig);
-
-        $topConf[$alias] = $config;
-        if($container->hasParameter('n3b.config'))
-            $topConf = \array_merge($topConf, $container->getParameter('n3b.config'));
-
-        $container->setParameter('n3b.config', $topConf);
+        if($container->hasParameter(self::CONFIG_NODE_NAME))
+            $this->processParams($container->getParameter(self::CONFIG_NODE_NAME));
     }
 
     public function set($key, $value)

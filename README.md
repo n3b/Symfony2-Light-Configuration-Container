@@ -31,7 +31,7 @@ MyBundleNamespace\DependencyInjection\MyBundleExtension:
         {
             $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
             $loader->load('services.yml');
-            $container->get('n3b_config')->init($configs, $container, $this->getAlias());
+            new \n3b\Bundle\Util\Service\Config\ConfigParser($configs, $container, $this->getAlias());
         }
 
         public function getAlias()

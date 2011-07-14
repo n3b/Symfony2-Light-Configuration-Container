@@ -1,5 +1,7 @@
 <?php
 
+namespace n3b\Bundle\Util\Service\Config;
+
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

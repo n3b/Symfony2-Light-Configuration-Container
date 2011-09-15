@@ -12,8 +12,8 @@ class ConfigContainer extends ConfigContainerBuilder
         $this->processParams($params);
     }
 
-    public function getArray()
+    public function toArray()
     {
-        return $this->container;
+        return \array_map( function($a) {return $a instanceof ConfigContainer ? $a->toArray() : $a; }, $this->container);
     }
 }

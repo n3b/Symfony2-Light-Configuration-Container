@@ -1,0 +1,11 @@
+parameters:
+    n3b_config_namespace:           your_bundle_namespace
+services:
+  n3b_config_factory:
+    class:                          %n3b_config_namespace%\SymfonyConfig\ConfigFactory
+  n3b_config:
+    class:                          %n3b_config_namespace%\SymfonyConfig\ConfigContainer
+    factory_service:                n3b_config_factory
+    factory_method:                 build
+    arguments:
+      -                             %n3b_config%

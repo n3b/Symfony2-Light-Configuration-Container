@@ -1,3 +1,3 @@
 light symfony2 bundle configuration container
 
-doc comming soon
+doc coming soon

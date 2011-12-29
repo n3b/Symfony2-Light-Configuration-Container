@@ -76,6 +76,11 @@ fully refactored
 
 and now you can inject the 'config' service into all of your services, or call it from view
 
-    $view['config']->get('data.foo') // => 'bar'
-    $view['config']->get('multilevel.data.inside.here') // => 'done!'
-    $view['config']->get('data')->toArray() // => array('DataOne' => 'dummy', 'foo' => 'bar')
+    $view['config']->get('data.foo'); // => 'bar'
+    $view['config']->get('multilevel.data.inside.here'); // => 'done!'
+    $view['config']->get('data')->toArray(); // => array('DataOne' => 'dummy', 'foo' => 'bar')
+    $view['config']->get('multilevel.data')->get('inside')->get('here'); // => 'done!'
+    
+    $container = $view['config']->get('multilevel.data');
+    $container->get('inside.here'); // => array('done!')
+

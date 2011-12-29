@@ -82,5 +82,7 @@ and now you can inject the 'config' service into all of your services, or call i
     $view['config']->get('multilevel.data')->get('inside')->get('here'); // => 'done!'
     
     $multilevelData = $view['config']->get('multilevel.data');
-    $multilevelData->get('inside.here'); // => array('done!')
+    $multilevelData->get('inside.here'); // => 'done!'
+
+    $view['config']['multilevel.data.inside']['here'] // =>  'done!'
 

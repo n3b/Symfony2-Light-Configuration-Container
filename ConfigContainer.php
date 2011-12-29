@@ -1,6 +1,6 @@
 <?php
 
-namespace n3b\Bundle\Util\SymfonyConfig;
+namespace n3b\Bundle\Util;
 
 class ConfigContainer implements \ArrayAccess
 {
@@ -28,7 +28,7 @@ class ConfigContainer implements \ArrayAccess
 
     public function offsetGet($offset)
     {
-        return $this->get($offset);
+        return $this->get[$offset];
     }
 
     public function offsetSet($offset, $value)
@@ -57,5 +57,10 @@ class ConfigContainer implements \ArrayAccess
         $this->elements[] = $value;
         
         return true;
+    }
+    
+    public function toArray()
+    {
+        return \array_map( function($a) {return $a instanceof ConfigContainer ? $a->toArray() : $a; }, $this->elements);
     }
 }
